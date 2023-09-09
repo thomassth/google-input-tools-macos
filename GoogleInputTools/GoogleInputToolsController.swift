@@ -191,8 +191,12 @@ class GoogleInputToolsController: IMKInputController {
 
     override func handle(_ event: NSEvent!, client sender: Any!) -> Bool {
         NSLog("%@", event)
+        
+        if event.modifierFlags.contains(.command){
+            print("commanded")
+        }
 
-        if event.type == NSEvent.EventType.keyDown {
+        else if event.type == NSEvent.EventType.keyDown {
 
             let inputString = event.characters!
             let key = inputString.first!
